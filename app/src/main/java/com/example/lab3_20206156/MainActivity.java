@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inicializar vistas
         initializeViews();
         setupDropdowns();
         setupButtonListeners();
@@ -133,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         int amount = Integer.parseInt(amountInput.getText().toString());
         int categoryId = categoryMap.get(category);
 
-        // Convertir dificultad al formato correcto
+
         String apiDifficulty;
         switch(difficulty.toLowerCase()) {
             case "fácil": apiDifficulty = "easy"; break;

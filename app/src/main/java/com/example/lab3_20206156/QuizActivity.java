@@ -256,7 +256,6 @@ public class QuizActivity extends AppCompatActivity {
         int totalAnswered = correctAnswers + wrongAnswers;
         int actuallyUnanswered = questions.size() - totalAnswered;
 
-        // Actualizar estadísticas
         unanswered = actuallyUnanswered;  // Sobreescribir el valor
 
         Intent intent = new Intent(this, ResultsActivity.class);
