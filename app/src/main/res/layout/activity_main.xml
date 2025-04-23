@@ -7,7 +7,6 @@
     android:background="#BBDEFB"
     tools:context=".MainActivity">
 
-    <!-- Título de la app -->
     <TextView
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
@@ -16,10 +15,9 @@
         android:layout_marginTop="40dp"
         android:text="¡Bienvenido a TeleTrivia!"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="32sp"
         android:textStyle="bold" />
 
-    <!-- Texto descriptivo -->
     <TextView
         android:id="@+id/appDescription"
         android:layout_width="match_parent"
@@ -67,9 +65,8 @@
                 android:id="@+id/categoryDropdown"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Seleccione categoría"
-                android:inputType="none"
-                android:textColor="#000000" />
+                android:hint="Seleccione la categoría"
+                android:inputType="none"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Campo Cantidad -->
@@ -94,12 +91,10 @@
                 android:id="@+id/amountInput"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Número de preguntas"
-                android:inputType="number"
-                android:textColor="#000000" />
+                android:hint="Escriba la cantidad de preguntas"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campo Dificultad -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -122,30 +117,27 @@
                 android:id="@+id/difficultyDropdown"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Seleccione dificultad"
-                android:inputType="none"
-                android:textColor="#000000" />
+                android:hint="Seleccione el nivel dificultad"
+                android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Botón Comprobar Conexión -->
         <Button
             android:id="@+id/checkConnectionButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="16dp"
             android:backgroundTint="#2196F3"
-            android:text="Comprobar conexión"
+            android:text="Comprueba tu conexión"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
-        <!-- Botón Comenzar -->
         <Button
             android:id="@+id/startButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:backgroundTint="#2196F3"
             android:enabled="false"
-            android:text="Comenzar"
+            android:text="Comenzar juego"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
     </LinearLayout>
