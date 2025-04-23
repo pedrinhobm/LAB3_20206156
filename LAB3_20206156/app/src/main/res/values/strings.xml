@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">LAB3_20206156</string>
+
+
+    <!-- Main Activity -->
+    <string name="welcome_title">¡Bienvenido a Teletrivia!</string>
+    <string name="welcome_subtitle">La app diseñada para testear tu conocimiento y retar a tus amigos!\nA continuación, elija los parámetros de juego</string>
+    <string name="category_hint">Categoría</string>
+    <string name="amount_hint">Cantidad</string>
+    <string name="difficulty_hint">Dificultad</string>
+    <string name="check_connection">Comprobar la conexión a internet</string>
+    <string name="start_game">Comenzar</string>
+
+    <!-- Quiz Activity -->
+    <string name="next">Siguiente</string>
+
+    <!-- Results Activity -->
+    <string name="results_title">Resultados</string>
+    <string name="correct_answers">Correctas:</string>
+    <string name="wrong_answers">Incorrectas:</string>
+    <string name="unanswered">No respondidas:</string>
+    <string name="play_again">Volver a Jugar</string>
+
+    <!-- Arrays para los dropdowns -->
+    <string-array name="categories">
+        <item>Cultura General</item>
+        <item>Libros</item>
+        <item>Películas</item>
+        <item>Música</item>
+        <item>Computación</item>
+        <item>Matemática</item>
+        <item>Deportes</item>
+        <item>Historia</item>
+    </string-array>
+
+    <string-array name="difficulties">
+        <item>Fácil</item>
+        <item>Medio</item>
+        <item>Difícil</item>
+    </string-array>
+
+</resources>
