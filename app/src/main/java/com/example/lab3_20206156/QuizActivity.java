@@ -28,13 +28,13 @@ public class QuizActivity extends AppCompatActivity {
     private TextView timerText, questionText, questionCountText, categoryText;
     private RadioGroup optionsGroup;
     private Button nextButton;
-    private List<Question> questions = new ArrayList<>();
-    private int currentQuestionIndex = 0;
+    private List<Question> questions = new ArrayList<>(); // se establece en un arreglo la lista de preguntas
+    private int currentQuestionIndex = 0; // aca se contabilizarán preguntas acertadas, incorrectas y sin rpta
     private int correctAnswers = 0;
     private int wrongAnswers = 0;
     private int unanswered = 0;
-    private CountDownTimer countDownTimer;
-    private int totalTime;
+    private CountDownTimer countDownTimer; // este es el tiempo restante de acuerdo a la multiplicacion impleementada
+    private int totalTime; // en la anterior vista del menu principal
     private int remainingTime;
 
     @Override
@@ -74,31 +74,35 @@ public class QuizActivity extends AppCompatActivity {
         nextButton = findViewById(R.id.nextButton);
     }
 
-    private void setupTimer() {
+    private void setupTimer() { // aquí se están implementando los hilos acorde al tiempo total ...
         countDownTimer = new CountDownTimer(totalTime * 1000L, 1000) {
             @Override
-            public void onTick(long millisUntilFinished) {
+            public void onTick(long millisUntilFinished) { // ... hasta el momento que se finaliza
                 remainingTime = (int) (millisUntilFinished / 1000);
                 updateTimerText();
             }
 
             @Override
-            public void onFinish() {
-                // Calcular preguntas no respondidas antes de mostrar resultados
-                int totalAnswered = correctAnswers + wrongAnswers;
-                unanswered = questions.size() - totalAnswered;
-                showResults();
+            public void onFinish() { // aqui es cuando termina el juego y se contabiliza
+                int totalAnswered = correctAnswers + wrongAnswers; // el numero total de preguntas
+                unanswered = questions.size() - totalAnswered; // para ese momento solo están correctas e incorrectas
+                showResults(); // más adelante indicaré acerca de las preguntas sin responder
             }
         }.start();
     }
 
-    private void updateTimerText() {
-        int minutes = remainingTime / 60;
-        int seconds = remainingTime % 60;
+    private void updateTimerText() { // aqui sigue la continuacion de los hilos
+        int minutes = remainingTime / 60; // ya ahi está distribuido por los tiempos , tanto minutos como segundo
+        int seconds = remainingTime % 60; // y se extrae y muestra en la vista del juego
         String timeFormatted = String.format("%02d:%02d", minutes, seconds);
         timerText.setText(timeFormatted);
     }
 
+    // aqui si presente dificultades para llamar a los links , primero dado que no corria y no seleccionaba a los campos que he escogido
+    // por lo que me rechazaba y volvia al menu principal. Al inicio quise realizar selectivas multiples para que de acuerdo
+    // a lo que he escogido seleccione un link especifco pero sería muy extenso
+    // y use ia para que solo rastreará la fuente de acuerdo a los campos de cantidad,categoria y dificultad
+    // a las variables que llamé en la anterior vista serán colocadas dentro del link para que vaya directo con el balotario de preguntas
     private String getSpecificApiUrl(int amount, int category, String difficulty) {
         return String.format(
                 "https://opentdb.com/api.php?amount=%d&category=%d&difficulty=%s&type=multiple",
@@ -210,14 +214,13 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
     }
-    private void showQuestion() {
-        Question currentQuestion = questions.get(currentQuestionIndex);
-
+    private void showQuestion() { // esta funcion sirve para mostrar las preguntas
+        Question currentQuestion = questions.get(currentQuestionIndex); // esto que está al costado del tiempo
         questionCountText.setText(String.format(
                 "Pregunta %d/%d",
                 currentQuestionIndex + 1,
                 questions.size()
-        ));
+        )); // irá al costado del órden de número de pregunta sobre el total de preguntas ( por eso le puse size()
 
         questionText.setText(currentQuestion.getQuestion());
 
