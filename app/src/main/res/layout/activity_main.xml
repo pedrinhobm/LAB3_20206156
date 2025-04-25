@@ -14,7 +14,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:text="¡Bienvenido a TeleTrivia!"
-        android:textColor="#000000"
         android:textSize="32sp"
         android:textStyle="bold" />
 
@@ -27,7 +26,6 @@
         android:layout_marginHorizontal="24dp"
         android:gravity="center"
         android:text="La app diseñada para testear tu conocimiento y retar a tus amigos!\nA continuación, elija los parámetros de juego"
-        android:textColor="#000000"
         android:textSize="16sp" />
 
     <!-- Contenedor principal de campos -->

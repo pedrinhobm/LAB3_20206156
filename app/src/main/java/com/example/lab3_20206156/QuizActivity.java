@@ -156,16 +156,6 @@ public class QuizActivity extends AppCompatActivity {
                     String jsonData = response.body().string();
                     JSONObject jsonObject = new JSONObject(jsonData);
 
-                    if (jsonObject.getInt("response_code") != 0) {
-                        runOnUiThread(() -> {
-                            Toast.makeText(QuizActivity.this,
-                                    "No hay preguntas disponibles para esta combinación",
-                                    Toast.LENGTH_LONG).show();
-                            finish();
-                        });
-                        return;
-                    }
-
                     JSONArray results = jsonObject.getJSONArray("results");
                     questions.clear();
 
@@ -255,15 +245,15 @@ public class QuizActivity extends AppCompatActivity {
         if (countDownTimer != null) {
             countDownTimer.cancel();
         }
-        // Calcular preguntas no respondidas
+        // Para mostrar los resultados , calculamos primero las preguntas que si se respondieron
+        // y despues es restado por la cantidad total de preguntas size() , para identificar las que no se respondieron
+        // por eso esta identificado como variable unaswered
         int totalAnswered = correctAnswers + wrongAnswers;
         int actuallyUnanswered = questions.size() - totalAnswered;
-
-        unanswered = actuallyUnanswered;  // Sobreescribir el valor
-
-        Intent intent = new Intent(this, ResultsActivity.class);
-        intent.putExtra("correct", correctAnswers);
-        intent.putExtra("wrong", wrongAnswers);
+        unanswered = actuallyUnanswered; // aqui si use porque no podia obtener las preguntas no respondidas
+        Intent intent = new Intent(this, ResultsActivity.class); //y tuve que restar las respondidas por el total
+        intent.putExtra("correct", correctAnswers); // todos estos resultados se van directo a la siguiente vista
+        intent.putExtra("wrong", wrongAnswers); // de resultados para mostrar correctas , incorrectas y no respondidas
         intent.putExtra("unanswered", unanswered);
         intent.putExtra("total", questions.size());
         startActivity(intent);
