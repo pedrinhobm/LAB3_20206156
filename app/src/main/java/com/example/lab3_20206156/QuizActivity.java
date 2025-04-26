@@ -142,16 +142,6 @@ public class QuizActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if (!response.isSuccessful()) {
-                    runOnUiThread(() -> {
-                        Toast.makeText(QuizActivity.this,
-                                "Error del servidor: " + response.code(),
-                                Toast.LENGTH_LONG).show();
-                        finish();
-                    });
-                    return;
-                }
-
                 try {
                     String jsonData = response.body().string();
                     JSONObject jsonObject = new JSONObject(jsonData);
@@ -226,19 +216,18 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
-    private void checkAnswer() {
+    private void checkAnswer() { // aqui se contabilizará si la rpta es correcta o no
         int selectedId = optionsGroup.getCheckedRadioButtonId();
-        if (selectedId != -1) {
+        if (selectedId != -1) { // dependiendo de la alternativa seleccionada , se ira contabilizando
             RadioButton selectedRadioButton = findViewById(selectedId);
             String selectedAnswer = selectedRadioButton.getText().toString();
-
             if (selectedAnswer.equals(questions.get(currentQuestionIndex).getCorrectAnswer())) {
-                correctAnswers++;
+                correctAnswers++; // si es igual a la rpta correcta se suma
             } else {
-                wrongAnswers++;
+                wrongAnswers++; // asi como la rpta incorrecta
             }
         }
-        unanswered++;
+        unanswered++; // y luego las no respondidas
     }
 
     private void showResults() {
@@ -260,7 +249,7 @@ public class QuizActivity extends AppCompatActivity {
         finish();
     }
 
-    private String decodeHtml(String html) {
+    private String decodeHtml(String html) { // esta funcion es para decodificar el link del html , dependiente de los campos escogidos en la vista anterior
         return android.text.Html.fromHtml(html, android.text.Html.FROM_HTML_MODE_LEGACY).toString();
     }
 
@@ -272,8 +261,8 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
-    private static class Question {
-        private final String question;
+    private static class Question { // para las preguntas , se implemento una clase
+        private final String question; // cada uno con los campos : rpta, categoria , dificultad
         private final String correctAnswer;
         private final List<String> options;
         private final String category;

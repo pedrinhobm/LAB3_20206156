@@ -103,7 +103,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Botón Siguiente -->
     <Button
         android:id="@+id/nextButton"
         android:layout_width="386sp"

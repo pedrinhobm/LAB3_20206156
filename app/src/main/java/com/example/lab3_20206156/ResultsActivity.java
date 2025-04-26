@@ -11,21 +11,25 @@ public class ResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        // Obtener resultados del intent
+        // para la obtencion de resultados
+        // recogemos de la vista anterior la cantidad de rptas
+        // correctas, incorrectas y sin responder
         int correct = getIntent().getIntExtra("correct", 0);
         int wrong = getIntent().getIntExtra("wrong", 0);
         int unanswered = getIntent().getIntExtra("unanswered", 0);
 
-        // Mostrar resultados
+        // recogen los datos para mostrarlos
+        // eso será representados por color
+        // aquí ya no tuve ningún problema o duda para implementarlo en el código
         TextView correctText = findViewById(R.id.correctText);
         TextView wrongText = findViewById(R.id.wrongText);
         TextView unansweredText = findViewById(R.id.unansweredText);
-
         correctText.setText(String.valueOf(correct));
         wrongText.setText(String.valueOf(wrong));
         unansweredText.setText(String.valueOf(unanswered));
 
-        // Configurar botón para volver a jugar
+        // aqui tambien se enceuntra el boton que nos enviará
+        // al menu principal , es por ello que para cambiar de vista usamos Intent
         Button playAgainButton = findViewById(R.id.playAgainButton);
         playAgainButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);

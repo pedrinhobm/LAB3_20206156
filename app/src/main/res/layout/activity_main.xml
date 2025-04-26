@@ -28,7 +28,6 @@
         android:text="La app diseñada para testear tu conocimiento y retar a tus amigos!\nA continuación, elija los parámetros de juego"
         android:textSize="16sp" />
 
-    <!-- Contenedor principal de campos -->
     <LinearLayout
         android:layout_width="366dp"
         android:layout_height="526dp"
@@ -40,7 +39,6 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- Campo Categoría -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +65,6 @@
                 android:inputType="none"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campo Cantidad -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
