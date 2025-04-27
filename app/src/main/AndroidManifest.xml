@@ -20,7 +20,7 @@
             android:exported="false"/>
 
         <activity
-            android:name=".QuizActivity"
+            android:name=".TriviaActivity"
             android:exported="false"/>
 
         <activity

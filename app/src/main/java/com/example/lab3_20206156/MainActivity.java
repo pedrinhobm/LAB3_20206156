@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         } // asi como el tiempo total que se multiplica el tiempo de dificutlad por pregunta por la ccantiad de preguntas
         int totalTime = amount * timePerQuestion; // ese será el tiempo total
 
-        Intent intent = new Intent(this, QuizActivity.class);
+        Intent intent = new Intent(this, TriviaActivity.class);
         intent.putExtra("amount", amount); // con el Intent nos dirigimos a la vista del juego QuizActivity
         intent.putExtra("category", categoryId); // y transladamos los datos de seleccion y el tiempo
         intent.putExtra("difficulty", apiDifficulty); // que serán fundamentales para el desarrollo del juego

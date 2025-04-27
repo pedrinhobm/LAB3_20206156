@@ -24,7 +24,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class QuizActivity extends AppCompatActivity {
+public class TriviaActivity extends AppCompatActivity {
     private TextView timerText, questionText, questionCountText, categoryText;
     private RadioGroup optionsGroup;
     private Button nextButton;
@@ -40,7 +40,7 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz);
+        setContentView(R.layout.activity_trivia);
 
         initializeViews();
 
@@ -133,7 +133,7 @@ public class QuizActivity extends AppCompatActivity {
             public void onFailure(Call call, IOException e) {
                 runOnUiThread(() -> {
                     Log.e("QuizActivity", "Error en la conexión: " + e.getMessage());
-                    Toast.makeText(QuizActivity.this,
+                    Toast.makeText(TriviaActivity.this,
                             "Error al conectar con el servidor. Verifica tu conexión a Internet.",
                             Toast.LENGTH_LONG).show();
                     finish();
@@ -173,7 +173,7 @@ public class QuizActivity extends AppCompatActivity {
 
                     runOnUiThread(() -> {
                         if (questions.isEmpty()) {
-                            Toast.makeText(QuizActivity.this,
+                            Toast.makeText(TriviaActivity.this,
                                     "No se encontraron preguntas",
                                     Toast.LENGTH_SHORT).show();
                             finish();
@@ -185,7 +185,7 @@ public class QuizActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     Log.e("QuizActivity", "Error al parsear JSON", e);
                     runOnUiThread(() -> {
-                        Toast.makeText(QuizActivity.this,
+                        Toast.makeText(TriviaActivity.this,
                                 "Error al procesar las preguntas",
                                 Toast.LENGTH_SHORT).show();
                         finish();

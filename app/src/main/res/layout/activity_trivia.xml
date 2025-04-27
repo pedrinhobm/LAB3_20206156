@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#BBDEFB"
-    tools:context=".QuizActivity">
+    tools:context=".TriviaActivity">
 
-    <!-- Encabezado azul claro -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
